@@ -17,6 +17,8 @@ O sistema permite que administradores realizem o gerenciamento completo da escol
 - CRUD completo
 - API documentada com Swagger
 
+É necessário Node, PostgreSQL e Docker, para testas as funcionalidades esse projeto.
+
 ---
 
 # 🚀 Tecnologias utilizadas
@@ -63,7 +65,8 @@ xyz-idiomas/
 ├── backend/
 ├── frontend/
 ├── docs/
-└── README.md
+├── README.md
+└── .gitattributes
 ```
 
 ---
@@ -306,7 +309,8 @@ Disponível em:
 http://localhost:5174/
 ```
 
-Não esqueça de ter dois terminais abertos, rodando tanto o Backend quanto o Frontend, para que a aplicação funcione!
+Não esqueça de permanecer com dois terminais abertos, rodando tanto o Backend, quanto o Frontend, para que a aplicação funcione.
+
 ---
 
 # Executando com Docker
