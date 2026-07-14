@@ -300,6 +300,13 @@ Execute:
 npm run dev
 ```
 
+Disponível em:
+
+```bash
+http://localhost:5174/
+```
+
+Não esqueça de ter dois terminais abertos, rodando tanto o Backend quanto o Frontend, para que a aplicação funcione!
 ---
 
 # Executando com Docker
@@ -317,7 +324,7 @@ O container executa automaticamente:
 - Seed
 - Inicialização da aplicação
 
-Caso deseje recriar os dados posteriormente:
+Caso deseje obter uma tabela com dados já inseridos:
 
 ```bash
 docker exec -it xyz_backend npx prisma db seed
