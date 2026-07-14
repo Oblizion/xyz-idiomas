@@ -221,10 +221,29 @@ cp .env.docker.example .env.docker
 Copy-Item .env.example .env
 Copy-Item .env.docker.example .env.docker
 ```
+Após copiar os arquivos, é necessário configurar as credenciais do banco de dados.
 
-Os arquivos de exemplo já possuem uma configuração padrão para execução local e com Docker.
+Abra o arquivo .env e altere os valores de exemplo, principalmente a senha do PostgreSQL:
+```bash
+DATABASE_URL="postgresql://postgres:sua_senha@localhost:5432/xyz_idiomas"
+```
 
-Caso deseje utilizar outras credenciais ou portas, basta editar os arquivos após a cópia.
+Substitua:
+
+```bash
+sua_senha
+```
+pela senha configurada no seu PostgreSQL local.
+
+Exemplo:
+
+```bash
+DATABASE_URL="postgresql://postgres:123456@localhost:5432/xyz_idiomas"
+```
+
+Caso utilize Docker, faça a mesma configuração no arquivo .env.docker, garantindo que usuário, senha, porta e nome do banco estejam de acordo com o ambiente configurado.
+
+Após ajustar as variáveis de ambiente, o projeto estará pronto para executar as migrations e iniciar a aplicação.
 
 ---
 
@@ -240,6 +259,11 @@ Execute as migrations:
 
 ```bash
 npx prisma migrate deploy
+```
+Gere o Prisma Client:
+
+```bash
+npx prisma generate
 ```
 
 Popule o banco:
