@@ -356,13 +356,55 @@ Senha
 
 # Swagger
 
-Disponível em:
+A documentação da API está disponível em:
 
-```
+```text
 http://localhost:3000/api
 ```
 
+## Como utilizar
+
+A maior parte dos endpoints exige autenticação via JWT.
+
+### 1. Realize o login
+
+Utilize o endpoint:
+
+```
+POST /auth/login
+```
+
+Credenciais criadas automaticamente pela Seed:
+
+Email
+
+```
+admin@xyz.com
+```
+
+Senha
+
+```
+123456
+```
+
+A resposta será semelhante a:
+
+```json
+{
+  "accessToken": "eyJhbGc..."
+}
+```
 ---
+### 2. Autorize no Swagger
+
+Clique no botão **Authorize** localizado no canto superior direito da página.
+
+Cole apenas o valor do **accessToken** retornado pelo login.
+
+Não é necessário escrever "Bearer", pois o Swagger adiciona esse prefixo automaticamente.
+
+Após autorizar, todos os endpoints protegidos poderão ser utilizados normalmente.
 
 # Testes
 
