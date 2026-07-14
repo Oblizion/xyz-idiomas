@@ -1,0 +1,11 @@
+# Arquivos de texto
+* text=auto
+
+# Scripts Shell sempre em LF
+*.sh text eol=lf
+
+# Arquivos Batch em CRLF
+*.bat text eol=crlf
+
+# PowerShell em CRLF
+*.ps1 text eol=crlf
