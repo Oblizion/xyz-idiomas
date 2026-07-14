@@ -1,0 +1,96 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Get a free hosted Postgres database in seconds: `npx create-db`
+
+generator client {
+  provider = "prisma-client-js"
+  binaryTargets = ["native", "debian-openssl-3.0.x"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        Int      @id @default(autoincrement())
+  name      String
+  email     String   @unique
+  password  String
+  role      String
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Student {
+
+  id Int @id @default(autoincrement())
+
+  name String
+
+  email String @unique
+
+  phone String
+
+  createdAt DateTime @default(now())
+
+  updatedAt DateTime @updatedAt
+
+  enrollments Enrollment[]
+
+}
+
+model Course {
+
+  id Int @id @default(autoincrement())
+
+  name String
+
+  description String
+
+  price Float
+
+  workload Int
+
+  createdAt DateTime @default(now())
+
+  updatedAt DateTime @updatedAt
+
+  enrollments Enrollment[]
+
+}
+
+model Enrollment {
+
+  id Int @id @default(autoincrement())
+
+  studentId Int
+
+  courseId Int
+
+  startDate DateTime
+
+  pricePaid Float
+
+  status EnrollmentStatus
+
+  createdAt DateTime @default(now())
+
+  updatedAt DateTime @updatedAt
+
+  student Student @relation(fields: [studentId], references: [id], onDelete: Cascade)
+
+  course Course @relation(fields: [courseId], references: [id], onDelete: Cascade)
+
+}
+enum EnrollmentStatus {
+
+ACTIVE
+
+CANCELLED
+
+COMPLETED
+
+}
